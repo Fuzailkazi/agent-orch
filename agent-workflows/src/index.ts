@@ -5,7 +5,7 @@
  *
  * PREREQUISITES:
  * 1. MCP server must be running: cd ../mcp-server && npm run dev
- * 2. OPENAI_API_KEY environment variable must be set
+ * 2. OPENAI_API_KEY must be set in .env file
  *
  * USAGE:
  *   npm run dev
@@ -15,6 +15,9 @@
  * - All tool calls go through MCP server (trust boundary)
  * - Dangerous tools (file-write) are forced to dry-run by MCP server
  */
+
+// Load environment variables from .env file
+import 'dotenv/config';
 
 import { createOrchestrator, type OrchestratorResult } from './orchestration/orchestrator.js';
 

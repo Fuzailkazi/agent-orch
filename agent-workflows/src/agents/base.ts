@@ -106,9 +106,11 @@ export class ConstrainedAgent {
         const tools = await createMCPToolWrappers(mcpClient, allowedTools, name);
 
         // Create the LLM
+        // API key is read from OPENAI_API_KEY environment variable (loaded via dotenv)
         const llm = new ChatOpenAI({
-            model,
-            temperature,
+            model: process.env.OPENAI_MODEL ?? model,
+            temperature: Number(process.env.OPENAI_TEMPERATURE ?? temperature),
+            apiKey: process.env.OPENAI_API_KEY,
         });
 
         // Create the prompt template
