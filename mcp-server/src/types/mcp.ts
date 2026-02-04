@@ -78,6 +78,8 @@ export interface ToolCallResponse {
     dryRun: boolean;
     timestamp: string;
     requestId: string;
+    /** For dry-run, describes what WOULD happen */
+    simulatedAction?: string;
 }
 
 // Audit log entry structure

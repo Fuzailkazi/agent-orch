@@ -156,7 +156,7 @@ export function createMcpServer() {
 
             // Add simulated action for dry-run
             if (result.simulatedAction) {
-                (response as Record<string, unknown>).simulatedAction = result.simulatedAction;
+                response.simulatedAction = result.simulatedAction;
             }
 
             if (!result.success) {
